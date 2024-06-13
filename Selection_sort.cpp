@@ -1,45 +1,43 @@
 #include <iostream>
 using namespace std;
-int Selection_sort(int arr[],int size)
-{
+void Selection_Sort(int arr[],int size)
+{   
+
     for(int i=0;i<size-1;i++)
     {
+        int min=i;
 
 
-        for(int j=i+1;j<size;j++)
+        for(int j=i;j<size-1;j++ )
         {
-            if(arr[i]>arr[j])
+            if(arr[min]>arr[j+1])
             {
-                swap(arr[i],arr[j]);
+                min=j+1;
+                
             }
-        }
-    }
 
+        }
+        swap(arr[min],arr[i]);
+    }
 
 }
 int main()
 {
-    int size;
-    cout<<"Enter the size of array"<<endl;
-    cin>>size;
-    int arr[size];
-    cout<<"Enter the elements of array "<<endl;
-    for(int i=0;i<size;i++)
-    {
-        cout<<"Enter element "<<i+1<<endl;
-        cin>>arr[i];
-    }
-    cout<<"The array is "<<endl;
-    for( int i=0;i<size;i++)
+    int* arr= new int [4];
+    arr[0]=65;
+    arr[1]=32;
+    arr[2]=50;
+    arr[3]=80;
+    for(int i=0;i<4;i++)
     {
         cout<<arr[i]<<"\t";
     }
+    Selection_Sort(arr,4);
     cout<<endl;
-    cout<<"The array after sorting is "<<endl;
-    Selection_sort(arr,size);
-    for(int i=0;i<size;i++)
+    cout<<"After Sorting "<<endl;
+    for(int i=0;i<4;i++)
     {
         cout<<arr[i]<<"\t";
     }
-    cout<<endl;
+
 }
